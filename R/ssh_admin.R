@@ -246,13 +246,15 @@ gce_ssh_setup <- function(instance,
 #' Calls API for the current SSH settings for an instance
 #' 
 #' @param instance An instance to check
+#' @param ... passed to \code{gce_get_instance}
 #' 
 #' @return A data.frame of SSH users and public keys
 #' 
 #' @export
-gce_check_ssh <- function(instance){
+gce_check_ssh <- function(instance, ...){
   
-  instance <- gce_get_instance(instance)
+  if (!is.gce_instance(instance))
+    instance <- gce_get_instance(instance, ...)
   
   ssh_keys <- gce_get_metadata(instance, "ssh-keys")$value
   
