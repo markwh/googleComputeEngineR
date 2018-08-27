@@ -4,10 +4,12 @@
 \alias{gce_check_ssh}
 \title{Calls API for the current SSH settings for an instance}
 \usage{
-gce_check_ssh(instance)
+gce_check_ssh(instance, ...)
 }
 \arguments{
 \item{instance}{An instance to check}
+
+\item{...}{passed to \code{gce_get_instance}}
 }
 \value{
 A data.frame of SSH users and public keys
